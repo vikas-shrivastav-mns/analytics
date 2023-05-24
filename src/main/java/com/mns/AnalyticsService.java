@@ -22,7 +22,7 @@ public class AnalyticsService {
         return orderAnalytics
                 .entrySet()
                 .stream()
-                .map(e -> new OrderAnalytics(e.getKey().getId(), e.getValue()))
+                .map(e -> new OrderAnalytics(e.getKey().id(), e.getValue()))
                 .collect(Collectors.toList());
     }
 }

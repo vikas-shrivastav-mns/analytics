@@ -34,7 +34,7 @@ class AnalyticsServiceTest {
     private OrderAnalytics findOrderAnalytics(Order o, List<OrderAnalytics> analytics) {
         return analytics
                 .stream()
-                .filter(orderAnalytics -> orderAnalytics.getOrderId().equals(o.getId()))
+                .filter(orderAnalytics -> orderAnalytics.getOrderId().equals(o.id()))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Order not found"));
     }

@@ -1,6 +1,34 @@
 micronaut:
   server:
-    port: 8081
+    port: 8089
 kafka:
   bootstrap:
     servers: localhost:9092
+otel:
+  instrumentation:
+    kafka:
+      enabled: true
+      captured-headers:
+        - X-Custom-Header
+  traces:
+    exporter: otlp
+    sampler: always_on
+  metrics:
+    exporter: otlp
+  logs:
+    exporter: otlp
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+      key: ${NEW_RELIC_LICENSE_KEY:unknown}
+      headers: api-key=${NEW_RELIC_LICENSE_KEY:unknown}
+      compression: gzip
+      instance: ${random.shortuuid}
+    experimental:
+      expoter:
+        otlp:
+          retry:
+            enabled: true
+    metric:
+      export:
+        interval: 5000

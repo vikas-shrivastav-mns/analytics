@@ -5,3 +5,7 @@ netty:
   default:
     allocator:
       max-order: 3
+grpc:
+  server:
+    port: 9999
+

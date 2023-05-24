@@ -20,6 +20,12 @@ dependencies {
     implementation("jakarta.annotation:jakarta.annotation-api")
     compileOnly("org.graalvm.nativeimage:svm")
     runtimeOnly("ch.qos.logback:logback-classic")
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-http")
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-kafka")
+    implementation("io.micronaut.tracing:micronaut-tracing-opentelemetry-grpc")//  dig deep in that
+    testImplementation("io.opentelemetry:opentelemetry-sdk-testing")
+//    implementation("io.micronaut.micrometer:micronaut-micrometer-registry-new-relic-telemetry")
+    implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
 }
 
 application {
